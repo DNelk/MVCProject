@@ -27,7 +27,7 @@ var login = function(req, res){
 		
 		req.session.account = account.toAPI();
 		
-		//res.json({redirect: '/maker'});
+		res.json({redirect: '/character'});
 	});
 };
 
@@ -57,7 +57,7 @@ var signup = function(req, res){
 			
 			req.session.account = newAccount.toAPI();
 			
-			//res.json({redirect: '/maker'});
+			res.json({redirect: '/character'});
 		});
 	});
 };

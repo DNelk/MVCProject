@@ -1,0 +1,17 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    a(href="/login")
+      img#logo(src="/assets/img/logo.png", alt="logo")
+    .navlink
+      a(href="/logout") Log out
+  section#canvas
+    canvas Come, on, get a browser with canvas
+  #slideMessage
+    img#speech(src="/assets/img/skull.png", alt="skull")
+    h3
+      span#errorMessage
+block scripts
+        script(src="/assets/character.js")

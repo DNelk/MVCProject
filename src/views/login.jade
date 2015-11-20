@@ -1,10 +1,11 @@
 extends ./base.jade
 block append style
     link(rel="stylesheet", type="text/css", href="/assets/style.css")
+    link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet', type='text/css')
 block body
   nav
     a(href="/login")
-      //img#logo(src="/assets/img/face.png", alt="face logo")
+      img#logo(src="/assets/img/logo.png", alt="logo")
     .navlink
       a(href="/login") Login
     .navlink
@@ -17,10 +18,9 @@ block body
       input#pass(type="password", name="pass", placeholder="password")
       input(type="hidden", name="_csrf", value="#{csrfToken}")
       a#loginSubmit(class="formSubmit", href="#") Sign in
-  #domoMessage
-    //img#speech(src="/assets/img/speech.png", alt="speech box")
+  #slideMessage
+    img#speech(src="/assets/img/skull.png", alt="skull")
     h3
       span#errorMessage Wrong username or password
-    //img#domo(src="assets/img/domo.png", alt="domo")
 block scripts
     script(src="/assets/client.js")
