@@ -109,6 +109,7 @@ function updateStats(){
 }
 
 function sendAjax(action, data) {
+		console.log(data);
         $.ajax({
             cache: false,
             type: "POST",
@@ -136,14 +137,7 @@ function backwardSkintoneClick() { skintoneindex--; if(skintoneindex < 0){skinto
 function forwardBodyClick()  { bodyindex++; if(bodyindex >= bodies.length){bodyindex = 0;} body.loadTexture(bodies[bodyindex], 0, false); updateStats();}
 function backwardBodyClick() { bodyindex--; if(bodyindex < 0){bodyindex = bodies.length-1;}body.loadTexture(bodies[bodyindex], 0, false); updateStats();}
 function createClick(){
-	sendAjax("/character", {
-		headgear: headgearindex,
-		skintone: skintoneindex,
-		archtype: bodyindex,
-		strength: strength,
-		agility:  agility,
-		health:   health
-		});
+	sendAjax("/character", "headgear=" +headgearindex+ "&skintone=" +skintoneindex+ "&archtype=" +bodyindex+ "&strength=" +strength+ "&agility="  +agility+ "&health="   +health+ "&_csrf="  + $("input[name='_csrf']").val());
 }
 
 function handleError(message) {

@@ -79,7 +79,7 @@ CharacterSchema.statics.findByOwner = function(ownerId, callback) {
 		owner: mongoose.Types.ObjectId(ownerId)
 	};
 	
-	return CharacterModel.find(search).select("name").exec(callback);
+	return CharacterModel.find(search).select("name headgear skintone archtype strength agility health").exec(callback);
 };
 
 CharacterModel = mongoose.model('Character', CharacterSchema);

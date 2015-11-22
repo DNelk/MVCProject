@@ -14,21 +14,20 @@ var display = function(req, res){
 			res.render('creator', {csrfToken: req.csrfToken()});
 		}
 		else{ //Show Character
-			res.render('app', {csrfToken: req.csrfToken()});
+			res.render('app', {csrfToken: req.csrfToken(), myCharacter:docs});
 		}
 	});
 };
 
 var create = function(req, res){
-	console.log("create");
 	var characterData = {
 		name: "unknown",
-		headgear: req.headgear,
-		skintone: req.skintone,
-		archtype: req.archtype,
-		strength: req.strength,
-		agility: req.agility,
-		health: req.health,
+		headgear: req.body.headgear,
+		skintone: req.body.skintone,
+		archtype: req.body.archtype,
+		strength: req.body.strength,
+		agility: req.body.agility,
+		health: req.body.health,
 		owner: req.session.account._id
 	};
 	
@@ -40,7 +39,7 @@ var create = function(req, res){
 			return res.status(400).json({error: 'An error occurred'});
 		}
 		
-		res.json({redirect: '/maker'});
+		res.json({redirect: '/character'});
 	});
 };
 
